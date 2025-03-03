@@ -11,7 +11,7 @@ if [[ $? -ne 0 ]]; then
         echo "File not found or not a valid ELF file"
         exit 1
 fi
-file_name=$0
+file_name=$1
 magic_number=$(echo $ELF | sed -nE 's/^.*Magic: (.*) Class.*/\1/p')
 class=$(echo $ELF | sed -nE 's/^.*Class: (.*) Data:.*/\1/p')
 byte_order=$(echo $ELF | sed -nE "s/^.*Data: .*, (.* endian) .*/\1/p")
